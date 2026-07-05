@@ -1,22 +1,29 @@
-# reddit-cc-analysis-nlp
-Climate Change Reddit Posts NLP Analysis Project
+# Reddit Climate Change Discourse Analysis
 
-In the Google Colab notebook CC_Reddit_Exploration_v1.ipynb, I will be analyzing a Reddit Climate Change Posts Dataset (Public Opinion on Climate Change).
+An NLP exploration of how people talk about climate change on Reddit, using a public dataset of Reddit posts on the topic.
 
-Climate change is an issue that I deeply care about and I often find discourse around the subject to be fascinating and under-investigated. Online discourse tends to provide a unique lens, as many will say things online that they would never say in-person. Consequently, there tends to be a larger degree of polarization in some areas online than in others. Upon finding this dataset, I asked myself five questions that I wanted to answer:
+This was a personal project built to dig into a topic I care about, not a production pipeline. I'm keeping it public as a record of the work, but it isn't actively maintained.
 
-1. Is climate change generally a polarizing topic on Reddit?
-2. Are people generally optimistic about our chances at fighting or adjusting to climate change?
-3. What types of topics do people commonly connect to climate change on Reddit?
-4. Are the post scores (upvotes - downvotes) strongly dependent on the topic and the sentiment expressed by the post?
-5. How much variation exists within Reddit discourse around climate change?
+## Questions explored
 
+1. Is climate change a polarizing topic on Reddit?
+2. Are people generally optimistic about our chances of fighting or adapting to climate change?
+3. What topics do people commonly connect to climate change?
+4. Are post scores correlated with topic or sentiment?
+5. How much variation exists within Reddit discourse on the subject?
 
-Plan
+## Approach
 
-To find out the answers to my questions, I decided to analyze the dataset in four specific ways.
+- **Preprocessing**: cleaned and deduplicated posts, then used NLTK for tokenization, stop word removal, and lemmatization.
+- **Sentiment analysis**: used NLTK's VADER (Sentiment Intensity Analyzer) to label posts as positive, negative, or neutral.
+- **Topic modeling**: used Latent Dirichlet Allocation (LDA) via gensim to surface the main topics in the dataset.
+- **Statistical testing**: used the Kruskal-Wallis test to check whether post scores differ significantly across sentiment and topic groups, followed by Dunn's post-hoc test with Bonferroni correction to find where those differences lie.
+- **Clustering**: used hierarchical clustering to look at overall variation in discourse across sentiment, topic, and post score.
 
-1. Look at overall sentiment in posts and find out whether people on Reddit associated positive, negative, or neutral sentiments with climate change broadly.
-2. Find out the main topics that are commonly discussed in the posts of the dataset and find out how much of the overall discourse each constitutes.
-3. Conduct statistical analysis to find out whether the post scores are correlated with the topic and sentiment of a post.
-4. Conduct clustering analysis to understand how cleanly the dataset falls into clusters based on topics, sentiments, and post scores.
+## Data
+
+[Public Opinion on Climate Change](https://www.kaggle.com/datasets/asaniczka/public-opinion-on-climate-change-updated-daily), a Reddit posts dataset available on Kaggle. The dataset isn't included in this repo; download it from Kaggle if you want to run the notebook yourself.
+
+## Tech
+
+Python, pandas, NLTK, gensim, scikit-learn, scipy, scikit-posthocs, seaborn, matplotlib. Written and run in Google Colab.
