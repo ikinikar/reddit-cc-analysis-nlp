@@ -2,8 +2,6 @@
 
 An NLP exploration of how people talk about climate change on Reddit, using a public dataset of Reddit posts on the topic.
 
-This was a personal project built to dig into a topic I care about, not a production pipeline. I'm keeping it public as a record of the work, but it isn't actively maintained.
-
 ## Questions explored
 
 1. Is climate change a polarizing topic on Reddit?
